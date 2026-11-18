@@ -1,0 +1,7 @@
+id = "hadal"
+name = "Hadal"
+version = "0.1.0"
+schema_version = 1
+authors = ["tcagriz"]
+description = "A deep-sea dark theme, based on the VS Code Abyss theme."
+repository = "https://github.com/tcagriz/hadal-zed"
