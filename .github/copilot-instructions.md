@@ -30,10 +30,12 @@
 Run the checks available in the source monorepo. At minimum:
 
 ```sh
+python3 tests/check_extension.py --package /tmp/hadal-zed-extension.tar.gz
+python3 -m unittest tests/check_extension_test.py
 python3 -m json.tool themes/hadal.json > /dev/null
 python3 -c 'import pathlib, tomllib; tomllib.loads(pathlib.Path("extension.toml").read_text())'
 ```
 
-When Zed is available, install this repository as a development extension and
-verify that the Hadal theme appears and loads without errors. Confirm that
-`LICENSE` remains at the package root.
+When Zed is available, use **Extensions → Install Dev Extension** with this
+repository, then verify that the Hadal theme appears in the Theme Selector and
+loads without errors. Confirm that `LICENSE` remains at the package root.
