@@ -34,6 +34,18 @@ Then select **Hadal** in Zed's Theme Selector, or add it to `settings.json`:
 
 Use any light theme you prefer for the `light` value.
 
+## Validate a development extension
+
+From the `zed/` package root:
+
+```sh
+python3 tests/check_extension.py --package /tmp/hadal-zed-extension.tar.gz
+```
+
+In Zed, open **Extensions → Install Dev Extension**, select this repository,
+then open the Theme Selector and choose **Hadal**. Reload the window if needed
+and confirm the editor, terminal and UI render without errors.
+
 ## Update and uninstall
 
 To update, replace the copied `hadal.json` with the latest file and reload Zed.

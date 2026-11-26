@@ -1,0 +1,23 @@
+name: Check Zed extension
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.x"
+      - name: Validate and package extension
+        run: python3 tests/check_extension.py --package /tmp/hadal-zed-extension.tar.gz
+      - name: Validate failure paths
+        run: python3 -m unittest tests/check_extension_test.py
+      - name: Inspect packaged files
+        run: tar -tzf /tmp/hadal-zed-extension.tar.gz
